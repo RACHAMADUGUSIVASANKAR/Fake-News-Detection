@@ -1,0 +1,135 @@
+:root {
+    --bg1: #0f2027;
+    --bg2: #203a43;
+    --bg3: #2c5364;
+    --accent: #ff6b6b;
+    --glass: rgba(255, 255, 255, 0.06);
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, var(--bg1), var(--bg2));
+    color: #e6f0f2
+}
+
+.wrap {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 1.5rem
+}
+
+.glow {
+    font-size: 2.2rem;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #fff, #cfe9ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 6px 20px rgba(0, 0, 0, 0.6)
+}
+
+.sub {
+    color: #cbe3e8;
+    margin-top: .4rem
+}
+
+.content {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+
+.card {
+    background: var(--glass);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 1.25rem;
+    width: 320px;
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+    transition: transform .35s ease, box-shadow .35s ease, background .35s ease
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.75)
+}
+
+
+@keyframes pop {
+    0% {
+        transform: scale(.98);
+        opacity: 0
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+.btn {
+    display: inline-block;
+    margin-top: .65rem;
+    background: linear-gradient(90deg, var(--accent), #ffa07a);
+    color: #07202a;
+    padding: .5rem .8rem;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: transform .18s ease
+}
+
+.btn:active {
+    transform: translateY(2px)
+}
+
+#sample-input {
+    width: 100%;
+    padding: .6rem;
+    border-radius: 8px;
+    border: 0;
+    margin-top: .45rem
+}
+
+.prediction {
+    margin-top: .8rem;
+    font-weight: 700
+}
+
+.footer {
+    margin-top: 2rem;
+    opacity: .7
+}
+
+/* small responsive tweaks */
+@media (max-width:700px) {
+    .content {
+        flex-direction: column;
+        align-items: center
+    }
+
+    .card {
+        width: 100%;
+        max-width: 420px
+    }
+}

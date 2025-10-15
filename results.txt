@@ -1,0 +1,13 @@
+Multinomial Naive Bayes results:
+Accuracy: 86.62%
+Precision: 0.88
+Recall: 0.81
+Confusion matrix:
+[[447, 43], [75, 317]]
+
+Logistic Regression results:
+Accuracy: 91.38%
+Precision: 0.86
+Recall: 0.96
+Confusion matrix:
+[[430, 60], [16, 376]]
