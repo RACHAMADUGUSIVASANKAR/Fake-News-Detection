@@ -1,68 +1,119 @@
-# Fake News Detection
+# Fake News Detection Project
 
 This project trains simple NLP models (Multinomial Naive Bayes and Logistic Regression) to detect fake news headlines.
 
-Files created by the project:
-- `fake_news_model.pkl` — the trained best model
-- `vectorizer.pkl` — the CountVectorizer used for preprocessing
-- `results.txt` — plaintext summary of metrics
-- `web/results.html` — generated HTML report with charts
-- `web/index.html`, `web/styles.css`, `web/script.js` — lightweight dashboard UI
+---
 
-Quick start
-1. Create a virtual environment (recommended):
+## Project Structure
 
-```cmd
-python -m venv .venv
-.venv\Scripts\activate
+```
+FAKE_NEWS_PROJECT/
+│
+├── .venv/                       # Python virtual environment
+├── web/
+│   ├── index.html               # Dashboard UI
+│   ├── results.html             # Generated HTML report with charts
+│   ├── script.js                # Dashboard JS
+│   ├── styles.css               # Dashboard CSS
+│   └── logo.jpg                 # Project logo
+├── fake_news_detection.py       # Script to train models and generate results
+├── server.py                    # Flask server for API & dashboard
+├── fake_news_model.pkl          # Trained model
+├── vectorizer.pkl               # CountVectorizer for preprocessing
+├── results.txt                  # Summary of metrics
+├── kaggle_fake_train.csv        # Training dataset
+├── kaggle_fake_test.csv         # Test dataset
+├── requirements.txt             # Project dependencies
+└── README.md                    # Project documentation
 ```
 
-2. Install requirements:
+---
 
-```cmd
+## Quick Start
+
+### 1. Set up virtual environment
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate   # Windows
+# OR
+source .venv/bin/activate  # macOS/Linux
+```
+
+### 2. Install dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-3. Train the model (or re-run training and generate reports):
+### 3. Train the model and generate reports
 
-```cmd
+```bash
 python fake_news_detection.py
 ```
 
-4. Run the server (serves the dashboard and provides `/predict` API):
+This will generate:
 
-```cmd
+* `fake_news_model.pkl` — trained best model
+* `vectorizer.pkl` — CountVectorizer used for preprocessing
+* `results.txt` — text summary of metrics
+* `web/results.html` — HTML report with charts
+
+### 4. Run the dashboard server
+
+```bash
 python server.py
 ```
 
-5. Open the dashboard in your browser:
+Open the dashboard in your browser:
 
-- http://127.0.0.1:5000/
-- http://127.0.0.1:5000/results
+* Dashboard: http://127.0.0.1:5000/
+* Results Report: http://127.0.0.1:5000/results
 
-Demo Output:
-News: President signs new bill to improve healthcare
-Prediction: REAL
+---
 
-News: Celebrity caught in shocking scandal revealed by insiders
-Prediction: FAKE
+## Demo Output
 
-News: Scientists discover water on Mars in unprecedented quantities
-Prediction: FAKE
+**Example Predictions:**
 
+| News Headline                                                 | Prediction |
+| ------------------------------------------------------------- | ---------- |
+| President signs new bill to improve healthcare                | REAL       |
+| Celebrity caught in shocking scandal revealed by insiders     | FAKE       |
+| Scientists discover water on Mars in unprecedented quantities | FAKE       |
 
-https://github.com/user-attachments/assets/13166e4d-eafc-48d1-bfff-7f83e75cd595
+**Demo Video:**
 
+https://github.com/user-attachments/assets/e39586f5-69db-4e1b-be53-5def0a34ba20
 
-API
-- POST /predict
-  - JSON body: {"text": "Your headline here"}
-  - Response: {"prediction": "FAKE" | "REAL", "label": 0|1}
+---
 
-Notes
-- The dashboard `web/index.html` uses a lightweight client-side demo when no backend is present. When `server.py` is running, the Predict button calls `/predict`.
-- If NLTK stopwords are missing, run a small Python one-liner to download them:
+## API Usage
 
-```cmd
+**POST /predict**
+
+* Request body (JSON):
+
+```json
+{"text": "Your headline here"}
+```
+
+* Response:
+
+```json
+{"prediction": "FAKE" | "REAL", "label": 0|1}
+```
+
+---
+
+## Notes
+
+* The dashboard `web/index.html` has a lightweight client-side demo when no backend is running. When `server.py` is running, the Predict button calls `/predict`.
+* If NLTK stopwords are missing, download them:
+
+```bash
 python -c "import nltk; nltk.download('stopwords')"
 ```
+
+---
+
