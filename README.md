@@ -40,6 +40,10 @@ python server.py
 - http://127.0.0.1:5000/
 - http://127.0.0.1:5000/results
 
+
+https://github.com/user-attachments/assets/2183cfe1-eeaa-4857-a522-319b1767cc67
+
+
 API
 - POST /predict
   - JSON body: {"text": "Your headline here"}
