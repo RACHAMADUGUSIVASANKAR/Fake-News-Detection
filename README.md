@@ -40,6 +40,20 @@ python server.py
 - http://127.0.0.1:5000/
 - http://127.0.0.1:5000/results
 
+Demo Output:
+News: President signs new bill to improve healthcare
+Prediction: REAL
+
+News: Celebrity caught in shocking scandal revealed by insiders
+Prediction: FAKE
+
+News: Scientists discover water on Mars in unprecedented quantities
+Prediction: FAKE
+
+
+https://github.com/user-attachments/assets/13166e4d-eafc-48d1-bfff-7f83e75cd595
+
+
 API
 - POST /predict
   - JSON body: {"text": "Your headline here"}
